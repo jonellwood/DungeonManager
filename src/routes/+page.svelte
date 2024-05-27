@@ -1,6 +1,22 @@
 <script lang="ts">
-	import type { PageData } from './$types';
-	export let data: PageData;
+	import { redirect } from '@sveltejs/kit';
+	// import type { PageData } from './$types';
+	// export let data: PageData;
+	let { data } = $props();
+	let loggedIn = $state(false);
+	function checkForLoggedIn() {
+		console.log('data dot username', data.username);
+		if (data.username.length > 0) {
+			$effect(() => {
+				loggedIn == true;
+				console.log('Logged in is:', loggedIn);
+			});
+		} else {
+			console.log('Logged in is: ', loggedIn);
+			redirect(303, './login');
+		}
+	}
+	checkForLoggedIn();
 </script>
 
 <div class="px-4">
@@ -24,24 +40,3 @@
 </div>
 
 <hr />
-<!-- <div class="px-4">
-	<form method="POST">
-		<div class="field">
-			<label for="name" class="label">Name </label>
-			<div class="control">
-				<input type="text" name="name" required />
-			</div>
-		</div>
-		<div class="field">
-			<label for="description" class="label">Description</label>
-			<div class="control">
-				<input type="text" name="description" required />
-			</div>
-		</div>
-		<div class="field is-grouped">
-			<div class="control">
-				<button class="button is-link is-light">Create</button>
-			</div>
-		</div>
-	</form>
-</div> -->
