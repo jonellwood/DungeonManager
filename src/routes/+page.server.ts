@@ -1,10 +1,14 @@
-import type { PageServerLoad } from './$types';
-import { getCampaigns } from '$lib/server/db';
+import { getUsersCampaigns } from '$lib/server/db';
+import { redirect } from '@sveltejs/kit';
 
-export const load = (() => {
-	const campaigns = getCampaigns();
-	console.log(campaigns);
+export const load = async (event) => {
+	if (!event.locals.user) redirect(302, '/login');
+	const username = await event.locals.user.username;
+	const userId = await event.locals.user.id;
+	const userNum = parseInt(userId);
+	const usersCampaigns = await getUsersCampaigns(userNum);
 	return {
-		campaigns
+		username,
+		usersCampaigns
 	};
-}) satisfies PageServerLoad;
+};

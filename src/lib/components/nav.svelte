@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import Dice from '../img/pix-dice.svg';
 </script>
 
@@ -57,10 +57,10 @@
 		<div class="navbar-end">
 			<div class="navbar-item">
 				<div class="buttons">
-					<a class="button is-primary has-text-primary-00" href="/">
+					<a class="button is-primary has-text-primary-00" href="/signup">
 						<strong>Sign up</strong>
 					</a>
-					<a class="button is-light has-text-primary-00" href="/"> Log in </a>
+					<a class="button is-light has-text-primary-00" href="/login"> Log in </a>
 				</div>
 			</div>
 		</div>

@@ -4,6 +4,7 @@ export type campaign = {
 	campaignName: string;
 	description: string;
 	campaignDesc: string;
+	owner_id: number;
 };
 
 export type character = {
@@ -24,4 +25,10 @@ export type encounter = {
 	encounterName: string;
 	description: string;
 	encounterDesc: string;
+};
+
+export type user = {
+	id: number;
+	username: string;
+	password_hash: string;
 };

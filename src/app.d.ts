@@ -3,8 +3,14 @@
 declare global {
 	namespace App {
 		// interface Error {}
-		// interface Locals {}
-		// interface PageData {}
+		interface Locals {
+			user: import('lucia').User | null;
+			session: import('lucia').Session | null;
+		}
+		interface PageData {
+			user: import('lucia').User | null;
+			session: import('lucia').Session | null;
+		}
 		// interface PageState {}
 		// interface Platform {}
 	}

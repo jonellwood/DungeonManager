@@ -4,7 +4,7 @@
 </script>
 
 <div class="px-4">
-	<h1 class="is-size-1">Campaigns</h1>
+	<h1 class="is-size-1">{data.username}'s Campaigns</h1>
 	<table class="table">
 		<thead>
 			<tr>
@@ -13,7 +13,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			{#each data.campaigns as campaign}
+			{#each data.usersCampaigns as campaign}
 				<tr>
 					<td><a href={`/campaign/${campaign.id}`}> {campaign.name}</a></td>
 					<td>{campaign.description}</td>
