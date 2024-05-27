@@ -4,6 +4,7 @@
 	import { redirect } from '@sveltejs/kit';
 	import Dice from '../lib/img/pix-dice.svg';
 	let { data, children } = $props();
+	import { enhance } from '$app/forms';
 	// console.log('layout says data is ');
 	// console.log(data);
 </script>
@@ -32,31 +33,27 @@
 
 		<div id="navbarBasicExample" class="navbar-menu">
 			<div class="navbar-start">
-				<a class="navbar-item move-right" href="/">{data.user?.username}'s Home </a>
+				<a class="navbar-item move-right" href="/">Home </a>
 
 				<!-- <a class="navbar-item"> Documentation </a> -->
 				<div class="navbar-item has-dropdown is-hoverable">
 					<a class="navbar-link" href="/"> Create</a>
 
 					<div class="navbar-dropdown">
-						<a class="navbar-item has-text-link-dark has-background-black" href="/"> Campaign </a>
-						<a class="navbar-item has-text-link-dark has-background-black" href="/"> Character </a>
-						<a class="navbar-item has-text-link-dark has-background-black" href="/"> Encounter </a>
+						<a class="navbar-item" href="/"> Campaign </a>
+						<a class="navbar-item" href="/"> Character </a>
+						<a class="navbar-item" href="/"> Encounter </a>
 					</div>
 				</div>
 				<div class="navbar-item has-dropdown is-hoverable">
 					<a class="navbar-link" href="/"> More </a>
 
 					<div class="navbar-dropdown">
-						<a class="navbar-item has-text-link-dark has-background-black" href="/"> About </a>
-						<a class="navbar-item has-text-link-dark has-background-black" href="/">
-							Code of Conduct
-						</a>
-						<a class="navbar-item has-text-link-dark has-background-black" href="/"> Contact </a>
+						<a class="navbar-item" href="/"> About </a>
+						<a class="navbar-item" href="/"> Code of Conduct </a>
+						<a class="navbar-item" href="/"> Contact </a>
 						<hr class="navbar-divider" />
-						<a class="navbar-item has-text-link-dark has-background-black" href="/">
-							Report an issue
-						</a>
+						<a class="navbar-item" href="/"> Report an issue </a>
 					</div>
 				</div>
 			</div>
@@ -75,9 +72,11 @@
 				<div class="navbar-end">
 					<div class="navbar-item">
 						<div class="buttons">
-							<a class="button is-primary has-text-primary-00" href="/logout">
-								<strong>Log out</strong>
-							</a>
+							<!-- <a class="button is-primary has-text-primary-00" href="/logout"> -->
+							<form method="post" use:enhance>
+								<button class="button">Log out</button>
+							</form>
+							<!-- </a> -->
 						</div>
 					</div>
 				</div>

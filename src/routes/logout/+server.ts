@@ -5,13 +5,14 @@ import { lucia } from '$lib/server/auth/auth';
 export const POST: RequestHandler = async (event) => {
 	if (!event.locals.session) {
 		redirect(302, '/');
-	}
-	await lucia.invalidateSession(event.locals.session.id);
-	const sessionCookie = lucia.createBlankSessionCookie();
-	event.cookies.set(sessionCookie.name, sessionCookie.value, {
-		path: '.',
-		...sessionCookie.attributes
-	});
+	} else {
+		await lucia.invalidateSession(event.locals.session.id);
+		const sessionCookie = lucia.createBlankSessionCookie();
+		event.cookies.set(sessionCookie.name, sessionCookie.value, {
+			path: '.',
+			...sessionCookie.attributes
+		});
 
-	redirect(302, '/');
+		redirect(302, '/');
+	}
 };
