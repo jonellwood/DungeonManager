@@ -1,9 +1,11 @@
 <script lang="ts">
 	//import Nav from '../lib/components/nav.svelte';
 	import Footer from '$lib/components/footer.svelte';
+	import { redirect } from '@sveltejs/kit';
 	import Dice from '../lib/img/pix-dice.svg';
-	import type { PageData } from './$types';
-	export let data: PageData;
+	let { data, children } = $props();
+	// console.log('layout says data is ');
+	// console.log(data);
 </script>
 
 <div>
@@ -30,7 +32,7 @@
 
 		<div id="navbarBasicExample" class="navbar-menu">
 			<div class="navbar-start">
-				<a class="navbar-item move-right" href="/"> Home </a>
+				<a class="navbar-item move-right" href="/">{data.user?.username}'s Home </a>
 
 				<!-- <a class="navbar-item"> Documentation </a> -->
 				<div class="navbar-item has-dropdown is-hoverable">
@@ -58,7 +60,7 @@
 					</div>
 				</div>
 			</div>
-			{#if !data.username}
+			{#if !data.session}
 				<div class="navbar-end">
 					<div class="navbar-item">
 						<div class="buttons">
@@ -96,5 +98,6 @@
 	</style>
 </div>
 
-<slot />
+{@render children()}
+<!-- <slot /> -->
 <Footer />

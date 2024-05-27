@@ -1,5 +1,7 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
+	import { page } from '$app/stores';
+	$page;
 </script>
 
 <div class="container is-widescreen">

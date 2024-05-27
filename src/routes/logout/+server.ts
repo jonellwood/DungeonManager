@@ -1,8 +1,8 @@
 import { redirect } from '@sveltejs/kit';
-// import type { RequestHandler } from './$types';
+import type { RequestHandler } from './$types';
 import { lucia } from '$lib/server/auth/auth';
 
-export const _POST = async (event) => {
+export const POST: RequestHandler = async (event) => {
 	if (!event.locals.session) {
 		redirect(302, '/');
 	}
@@ -12,5 +12,6 @@ export const _POST = async (event) => {
 		path: '.',
 		...sessionCookie.attributes
 	});
-	redirect(302, '/login');
+
+	redirect(302, '/');
 };

@@ -38,6 +38,9 @@
 	"dependencies": {
 		"@lucia-auth/adapter-sqlite": "^3.0.1",
 		"@types/better-sqlite3": "^7.6.10",
-		"oslo": "^1.2.0"
+		"class-variance-authority": "^0.7.0",
+		"clsx": "^2.1.1",
+		"oslo": "^1.2.0",
+		"tsx": "^4.11.0"
 	}
 }

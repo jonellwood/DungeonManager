@@ -1,16 +1,17 @@
 <script lang="ts">
 	import { redirect } from '@sveltejs/kit';
-	// import type { PageData } from './$types';
-	// export let data: PageData;
 	let { data } = $props();
 	let loggedIn = $state(false);
+	let username = $state();
 	function checkForLoggedIn() {
-		console.log('data dot username', data.username);
+		// console.log('data dot username', data.username);
 		if (data.username.length > 0) {
 			$effect(() => {
-				loggedIn == true;
-				console.log('Logged in is:', loggedIn);
+				loggedIn = data.username.length > 0;
+				username = data.username;
 			});
+			// console.log('Logged in is:', loggedIn);
+			// console.log('User is : ', username);
 		} else {
 			console.log('Logged in is: ', loggedIn);
 			redirect(303, './login');

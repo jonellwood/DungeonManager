@@ -1,4 +1,4 @@
-import { fail, redirect } from '@sveltejs/kit';
+import { redirect, error } from '@sveltejs/kit';
 // import { Argon2id } from 'oslo/password';
 import { lucia } from '$lib/server/auth/auth';
 import type { Actions } from './$types';
@@ -17,24 +17,22 @@ export const actions: Actions = {
 			username.length > 31 ||
 			!/^[a-z0-9_-]+$/.test(username)
 		) {
-			return fail(400, {
-				message: 'Invalid username format'
-			});
+			error(400, 'Invalid username format');
 		}
 		if (typeof password !== 'string' || password.length < 6 || password.length > 255) {
-			return fail(400, {
+			error(400, {
 				message: 'Invalid Password format'
 			});
 		}
 		const existingUser = checkIfExistingUser(username);
 		if (!existingUser) {
-			return fail(400, {
+			error(400, {
 				message: 'User name not found'
 			});
 		}
 		const validPassword = await new Argon2id().verify(existingUser.password_hash, password);
 		if (!validPassword) {
-			return fail(400, {
+			error(400, {
 				message: 'That is not your password bro'
 			});
 		}

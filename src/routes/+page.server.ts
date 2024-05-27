@@ -9,6 +9,7 @@ export const load = async (event) => {
 	const usersCampaigns = await getUsersCampaigns(userNum);
 	return {
 		username,
-		usersCampaigns
+		usersCampaigns,
+		userId
 	};
 };
