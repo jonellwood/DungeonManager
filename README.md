@@ -13,6 +13,7 @@ If you don't like it - fork off. 🤓
 - !!! Fix broken login with signup, signin buttons only showing when logged in. Logout button shows otherwise ... smh
 - Add "confirm password" input field and logic
 - Figure out how to return server errors to client and display them for validation purposes (unique username, validation issue such as length, etc... as well as "Invalid username or password errors. )
+- Clear sessionCookies when loading log in form? no wait... check for sessionCookie at login form and if found redirect accordingly...yeah that sounds more gooder.
 
 ### Campaigns
 
