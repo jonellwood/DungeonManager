@@ -1,0 +1,7 @@
+@font-face {
+	font-family: venca;
+	src: url('../src/lib/fonts/Vecna.ttf');
+}
+* {
+	font-family: venca !important;
+}

@@ -2,7 +2,7 @@
 	import Dice from '../img/pix-dice.svg';
 </script>
 
-<nav class="navbar has-text-link-dark" aria-label="main navigation">
+<nav class="navbar has-text-link-dark" aria-label="main navigation" id="main-nav">
 	<div class="navbar-brand">
 		<a class="navbar-item" href="/">
 			<img src={Dice} alt="Dice" />
@@ -52,6 +52,17 @@
 					</a>
 				</div>
 			</div>
+			<div class="navbar-item has-dropdown is-hoverable">
+				<a class="navbar-link" href="/"> Reference</a>
+
+				<div class="navbar-dropdown">
+					<a class="navbar-item has-text-link-dark has-background-black" href="/monsters">
+						Monsters
+					</a>
+					<!-- <a class="navbar-item has-text-link-dark has-background-black" href="/"> Character </a> -->
+					<!-- <a class="navbar-item has-text-link-dark has-background-black" href="/"> Encounter </a> -->
+				</div>
+			</div>
 		</div>
 
 		<div class="navbar-end">
@@ -68,6 +79,13 @@
 </nav>
 
 <style>
+	@font-face {
+		font-family: venca;
+		src: url('../../lib//fonts/Vecna.ttf');
+	}
+	#main-nav {
+		font-family: venca !important;
+	}
 	img {
 		position: fixed;
 		z-index: 2;

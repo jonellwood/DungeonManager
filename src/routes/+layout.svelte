@@ -9,7 +9,7 @@
 	// console.log(data);
 </script>
 
-<div>
+<div class="container">
 	<nav class="navbar has-text-link-dark" aria-label="main navigation">
 		<div class="navbar-brand">
 			<a class="navbar-item" href="/">
@@ -32,31 +32,41 @@
 		</div>
 
 		<div id="navbarBasicExample" class="navbar-menu">
-			<div class="navbar-start">
-				<a class="navbar-item move-right" href="/">Home </a>
+			{#if data.session}
+				<div class="navbar-start">
+					<a class="navbar-item move-right" href="/">Home </a>
+					<!-- <a class="navbar-item"> Documentation </a> -->
+					<div class="navbar-item has-dropdown is-hoverable">
+						<a class="navbar-link" href="/"> Create</a>
 
-				<!-- <a class="navbar-item"> Documentation </a> -->
-				<div class="navbar-item has-dropdown is-hoverable">
-					<a class="navbar-link" href="/"> Create</a>
+						<div class="navbar-dropdown">
+							<a class="navbar-item" href="/"> Campaign </a>
+							<a class="navbar-item" href="/"> Character </a>
+							<a class="navbar-item" href="/"> Encounter </a>
+						</div>
+					</div>
+					<div class="navbar-item has-dropdown is-hoverable">
+						<a class="navbar-link" href="/"> More </a>
 
-					<div class="navbar-dropdown">
-						<a class="navbar-item" href="/"> Campaign </a>
-						<a class="navbar-item" href="/"> Character </a>
-						<a class="navbar-item" href="/"> Encounter </a>
+						<div class="navbar-dropdown">
+							<a class="navbar-item" href="/"> About </a>
+							<a class="navbar-item" href="/"> Code of Conduct </a>
+							<a class="navbar-item" href="/"> Contact </a>
+							<hr class="navbar-divider" />
+							<a class="navbar-item" href="/"> Report an issue </a>
+						</div>
+					</div>
+					<div class="navbar-item has-dropdown is-hoverable">
+						<a class="navbar-link" href="/"> Reference</a>
+
+						<div class="navbar-dropdown">
+							<a class="navbar-item" href="/monsters"> Monsters </a>
+							<!-- <a class="navbar-item" href="/"> Character </a> -->
+							<!-- <a class="navbar-item" href="/"> Encounter </a> -->
+						</div>
 					</div>
 				</div>
-				<div class="navbar-item has-dropdown is-hoverable">
-					<a class="navbar-link" href="/"> More </a>
-
-					<div class="navbar-dropdown">
-						<a class="navbar-item" href="/"> About </a>
-						<a class="navbar-item" href="/"> Code of Conduct </a>
-						<a class="navbar-item" href="/"> Contact </a>
-						<hr class="navbar-divider" />
-						<a class="navbar-item" href="/"> Report an issue </a>
-					</div>
-				</div>
-			</div>
+			{/if}
 			{#if !data.session}
 				<div class="navbar-end">
 					<div class="navbar-item">
@@ -72,11 +82,9 @@
 				<div class="navbar-end">
 					<div class="navbar-item">
 						<div class="buttons">
-							<!-- <a class="button is-primary has-text-primary-00" href="/logout"> -->
 							<form method="post" use:enhance>
 								<button class="button">Log out</button>
 							</form>
-							<!-- </a> -->
 						</div>
 					</div>
 				</div>

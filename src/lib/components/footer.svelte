@@ -19,6 +19,17 @@
 </footer>
 
 <style>
+	@font-face {
+		font-family: venca;
+		src: url('../../lib//fonts/Vecna.ttf');
+	}
+	.footer {
+		position: fixed;
+		bottom: 0;
+		margin-bottom: 20px;
+		width: 100%;
+		font-family: venca;
+	}
 	.flex {
 		display: flex;
 		justify-content: space-around;

@@ -1,6 +1,8 @@
 <script lang="ts">
-	import type { PageData } from './$types';
-	export let data: PageData;
+	// import type { PageData } from './$types';
+	import { redirect } from '@sveltejs/kit';
+	// export let data: PageData;
+	let { data } = $props();
 </script>
 
 <div class="px-4">
