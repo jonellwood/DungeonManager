@@ -24,9 +24,9 @@
 		src: url('../../lib//fonts/Vecna.ttf');
 	}
 	.footer {
-		position: fixed;
-		bottom: 0;
-		margin-bottom: 20px;
+		/* position: fixed; */
+		/* bottom: 0; */
+		/* margin-bottom: 20px; */
 		width: 100%;
 		font-family: venca;
 	}
