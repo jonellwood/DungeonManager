@@ -1,87 +1,57 @@
-<script lang="ts">
-	import { json } from '@sveltejs/kit';
-	let s = $state();
-	import data from '../../lib/data/bestiary-ai.json';
-	// import data from `../../lib/data/bestiary-${s}.json`;
-	// let { data } = $props();
-	//let monsterNames = data.monster.map((item) => item.name);
-	let monsters = data.monster;
-	// console.log(data);
-	// import { onDestroy } from 'svelte';
-	let sources = ['aatm', 'aitfr-dn', 'aitfr-fcd', 'aitfr-isf', 'aitfr-thp', 'awm', 'bam', 'bgdia'];
-	let selectedSource = $state(sources[0]);
-	let jsonData = $state();
-	let monList = $state([]);
-	// let monsterList= JSON.parse(jsonData);
-	async function loadJson(source: string) {
-		try {
-			const module = await import(`../../lib/data/bestiary-${source}.json`);
-			// console.log(module);
-			if (jsonData !== null) {
-				// jsonData.set(module.default);
-				jsonData = module;
-				monList = jsonData.monster;
-				console.log(monList);
-			}
-			// console.log(jsonData);
-			// $effect(() => {
-			// 	jsonData = module;
-			// });
-			// jsonData.set(module.default);
-		} catch (error) {
-			console.error(`Error loading from source ${source}:`, error);
-			// (if error){
-			// jsonData.set(null);
-			jsonData = null;
-			// }
-		}
-	}
-	$effect(() => {
-		loadJson(selectedSource);
-	});
+<script>
+	/**
+	 * @type {any}
+	 */
+	// let monsters;
+	let { data } = $props();
+	// async function getMonsters() {
+	// 	const myHeaders = new Headers();
+	// 	myHeaders.append('Accept', 'application/json');
 
-	// onDestroy(() => {
-	// 	selectedSource.unsubscribe();
-	// })
+	// 	const requestOptions = {
+	// 		method: 'GET',
+	// 		headers: myHeaders,
+	// 		redirect: 'follow'
+	// 	};
+
+	// 	const monsters = await fetch('https://www.dnd5eapi.co/api/monsters/', requestOptions)
+	// 		.then((response) => response.json())
+	// 		// .then((result) => console.log(result))
+	// 		.catch((error) => console.error(error));
+	// 	console.log('MONSTERS');
+	// 	console.log(monsters.results[0].name);
+	// 	return monsters;
+	// }
+
+	// getMonsters();
+
+	// import { json } from '@sveltejs/kit';
+
+	// import data from '../../lib/utils/combined_data.json';
+	// let monsters = data.monster;
+	// console.log(monsters[4]);
 </script>
 
 <h1 class="is-size-1">Old School Monster List</h1>
 
-<!-- <select bind:value={selectedSource}>
-	{#each sources as source}
-		<option value={source}>{source}</option>
-	{/each}
-</select>
--->
-
 <div class="px-4">
-	<label for="monSource">Select a Source</label>
-	<select
-		name="monSource"
-		id="monSource"
-		bind:value={selectedSource}
-		on:change={loadJson(selectedSource)}
-	>
-		<option value="ai" selected>ai</option>
-		{#each sources as source}
-			<option value={source}>{source}</option>
-		{/each}
-	</select>
-	<p>Total Count {monList.length}</p>
+	<p>Total Count {data.count}</p>
 </div>
 
 <div class="px-4">
 	<div class="monsters-holder">
-		{#if jsonData}
-			{#each monList as monster}
+		{#if data}
+			<!-- <p>We have the {data.results}</p> -->
+			{#each data.results as monster}
 				<div class="monster-card">
-					<h2 class="mob-name">{monster.name}</h2>
-					<table>
+					<!-- <h2 class="mob-name">{monster.name}</h2> -->
+					<!-- <button> -->
+					<a href={`/monsters/${monster.index}`}> {monster.name}</a>
+					<!-- </button> -->
+					<!-- <table>
 						<tbody>
 							<tr>
-								<td class="stat">AC:</td><td class="stat"
-									>{monster.ac[0].ac} from {monster.ac[0].from}</td
-								>
+								<td class="stat">AC:</td><td class="stat">{monster.ac} </td>
 							</tr>
 							<tr>
 								<td class="stat">HP: </td>
@@ -96,7 +66,7 @@
 								<td class="stat"> {monster.int}</td>
 							</tr>
 						</tbody>
-					</table>
+					</table> -->
 				</div>
 			{/each}
 		{:else}
@@ -104,25 +74,6 @@
 		{/if}
 	</div>
 </div>
-
-<!-- <ul class="px-4">
-	{#each monsters as monster}
-		<li>
-			<ul>
-				<li class="mobName">{monster.name}</li>
-				<li>
-					<ul>
-						<li>AC: {monster.ac[0].ac} from {monster.ac[0].from}</li>
-						<li>HP: {monster.hp.average} Formula: {monster.hp.formula}</li>
-						<li>Dex: {monster.dex} Int: {monster.int}</li>
-					</ul>
-				</li>
-				<li><button class="button">Add to Encounter</button></li>
-			</ul>
-			<hr />
-		</li>
-	{/each}
-</ul> -->
 
 <style>
 	.mob-name {
@@ -143,7 +94,9 @@
 		width: 85%;
 		padding: 10px;
 	}
-	.stat {
-		font-family: monospace !important;
+	a {
+		text-decoration: none;
+		font-size: larger;
+		color: white;
 	}
 </style>
