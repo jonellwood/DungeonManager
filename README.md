@@ -20,6 +20,7 @@ If you don't like it - fork off. 🤓
 - Flesh out basic fields needed for a campaign. Make sure and add event.locals.user.is to insert statement for a new campaign to control access
 - Make create campaign route, form, and logic....
 - Use State to select a campaign, set as "Current Campaign" type value ... use this value to later select a Monster and "Add to campaign & encounter"
+- Campaign and Encounter can be state and displayed as "breadcrumbs" across the top maybe?
 
 ### Encounters
 
