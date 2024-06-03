@@ -7,13 +7,15 @@
 	import { enhance } from '$app/forms';
 	// console.log('layout says data is ');
 	// console.log(data);
+	import DragonSmall from '../lib/img/dragon-192.png';
+	import DragonTiny from '../lib/img/dragon-32.png';
 </script>
 
 <div class="container">
 	<nav class="navbar has-text-link-dark" aria-label="main navigation">
 		<div class="navbar-brand">
 			<a class="navbar-item" href="/">
-				<img src={Dice} alt="Dice" />
+				<img src={DragonTiny} alt="Tiny cute dragon face" />
 			</a>
 
 			<a
@@ -91,20 +93,62 @@
 			{/if}
 		</div>
 	</nav>
-
-	<style>
-		img {
-			position: fixed;
-			z-index: 2;
-			margin-left: 10px;
-			padding-right: 10px;
-		}
-		.move-right {
-			margin-left: 15px;
-		}
-	</style>
 </div>
-
-{@render children()}
+<div class="content">
+	{@render children()}
+</div>
 <!-- <slot /> -->
-<Footer />
+<!-- <Footer /> -->
+<footer class="footer">
+	<div class="content has-text-centered">
+		<div>
+			<strong>Dungeon Dashboard</strong> by
+			<a href="https://jonellwood.dev">The Ellwood Brothers Software Company</a>.
+			<br />
+			<!-- The source code is licensed
+					<a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content is
+					licensed
+					<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>. -->
+			<div class="flex">
+				<p>
+					Link to <strong>Socials</strong>
+				</p>
+				<p>Version Number: 0.0.1</p>
+			</div>
+			<img src={DragonSmall} alt="scary dragon face" class="dragonFace" />
+		</div>
+	</div>
+</footer>
+
+<style>
+	/* .container {
+		display: flex;
+	} */
+
+	.footer {
+		max-height: fit-content;
+		display: flex;
+		justify-content: space-evenly;
+	}
+	img {
+		/* position: fixed; */
+		z-index: 2;
+		/* margin-left: 10px; */
+		/* padding-right: 10px; */
+		/* margin-top: 30px; */
+	}
+	.move-right {
+		margin-left: 15px;
+	}
+	.flex {
+		display: flex;
+		justify-content: space-around;
+		margin-left: 15%;
+		margin-right: 15%;
+		padding-top: 5px;
+	}
+	.dragonFace {
+		position: relative;
+		width: 100px;
+	}
+</style>

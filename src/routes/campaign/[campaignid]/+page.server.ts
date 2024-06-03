@@ -20,19 +20,19 @@ export const load: PageServerLoad = (event) => {
 	}
 	// const campaign = getCampaignById(campaignId);
 	const campaign = getCampaignByIdAndOwnerId(campaignId, userId);
-	console.log(campaign);
+	// console.log(campaign);
 	if (!campaign) {
 		throw error(403, 'Not your shit - stay out');
 	}
 	// const characters = getCharactersByCampaignId(campaignId);
 	const characters = getCharactersByCampaignIdAndUserId(campaignId, userId);
-	console.log(characters);
+	// console.log(characters);
 	if (!characters) {
 		return null;
 	}
 	// const encounters = getEncountersByCampaignId(campaignId);
 	const encounters = getEncountersByCampaignIdAndUserId(campaignId, userId);
-	console.log(encounters);
+	// console.log(encounters);
 	if (!encounters) {
 		return null;
 	}
