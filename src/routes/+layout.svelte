@@ -103,7 +103,7 @@
 	<div class="content has-text-centered">
 		<div>
 			<strong>Dungeon Dashboard</strong> by
-			<a href="https://jonellwood.dev">The Ellwood Brothers Software Company</a>.
+			<a href="https://www.nerd-haven.com">The Community of Nerdhaven</a>.
 			<br />
 			<!-- The source code is licensed
 					<a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content is

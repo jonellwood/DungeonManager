@@ -1,8 +1,32 @@
 <script lang="ts">
+	import { browser } from '$app/environment';
 	import { redirect } from '@sveltejs/kit';
 	let { data } = $props();
 	let loggedIn = $state(false);
 	let username = $state();
+	// let currentCampaign = $state('');
+	let currentCampaign = $state({
+		name: 'none',
+		id: 'none'
+	});
+	$effect(() => {
+		const item = localStorage.getItem('currentCampaign');
+		if (item) currentCampaign = JSON.parse(item);
+	});
+
+	$effect(() => {
+		localStorage.setItem('currentCampaign', JSON.stringify(currentCampaign));
+	});
+
+	let currentEncounter = $state('None');
+	$effect(() => {
+		const item = localStorage.getItem('currentEncounter');
+		if (item) currentEncounter = JSON.parse(item);
+	});
+	$effect(() => {
+		localStorage.setItem('currentEncounter', JSON.stringify(currentEncounter));
+	});
+
 	function checkForLoggedIn() {
 		// console.log('data dot username', data.username);
 		if (data.username.length > 0) {
@@ -22,6 +46,7 @@
 
 <div class="px-4">
 	<h1 class="is-size-1">{data.username}'s Campaigns</h1>
+	<p>{currentCampaign.name} \ {currentEncounter}</p>
 	<table class="table">
 		<thead>
 			<tr>
@@ -32,7 +57,16 @@
 		<tbody>
 			{#each data.usersCampaigns as campaign}
 				<tr>
-					<td><a href={`/campaign/${campaign.id}`}> {campaign.name}</a></td>
+					<td
+						><a
+							href={`/campaign/${campaign.id}`}
+							onclick={() =>
+								(currentCampaign.name = `${campaign.name}`) &&
+								(currentCampaign.id = `${campaign.id}`)}
+						>
+							{campaign.name}</a
+						></td
+					>
 					<td>{campaign.description}</td>
 				</tr>
 			{/each}
