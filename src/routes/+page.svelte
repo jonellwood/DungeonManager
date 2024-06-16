@@ -7,9 +7,14 @@
 	// let currentCampaign = $state('');
 	let currentCampaign = $state({
 		name: 'none',
-		id: 'none'
+		id: 'none',
+		ownerId: 'none'
 	});
-	let currentEncounter = $state('none');
+	let currentEncounter = $state({
+		name: 'none',
+		id: 'none',
+		campaignId: 'none'
+	});
 	$effect(() => {
 		const item = localStorage.getItem('currentCampaign');
 		if (item) currentCampaign = JSON.parse(item);
@@ -75,7 +80,8 @@
 							href={`/campaign/${campaign.id}`}
 							onclick={() =>
 								(currentCampaign.name = `${campaign.name}`) &&
-								(currentCampaign.id = `${campaign.id}`)}
+								(currentCampaign.id = `${campaign.id}`) &&
+								(currentCampaign.ownerId = `${data.userId}`)}
 						>
 							{campaign.name}</a
 						></td
