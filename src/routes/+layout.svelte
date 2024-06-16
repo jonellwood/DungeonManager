@@ -101,6 +101,7 @@
 </div>
 <!-- <slot /> -->
 <!-- <Footer /> -->
+
 <footer class="footer">
 	<div class="content has-text-centered">
 		<div>
@@ -125,10 +126,12 @@
 
 <style>
 	/* .container {
-		display: flex;
+		height: 100vh;
 	} */
 
 	.footer {
+		position: relative;
+		bottom: 0;
 		max-height: fit-content;
 		display: flex;
 		justify-content: space-evenly;
