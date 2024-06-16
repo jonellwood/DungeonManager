@@ -9,6 +9,7 @@
 		name: 'none',
 		id: 'none'
 	});
+	let currentEncounter = $state('none');
 	$effect(() => {
 		const item = localStorage.getItem('currentCampaign');
 		if (item) currentCampaign = JSON.parse(item);
@@ -18,7 +19,6 @@
 		localStorage.setItem('currentCampaign', JSON.stringify(currentCampaign));
 	});
 
-	let currentEncounter = $state('None');
 	$effect(() => {
 		const item = localStorage.getItem('currentEncounter');
 		if (item) currentEncounter = JSON.parse(item);
@@ -26,7 +26,17 @@
 	$effect(() => {
 		localStorage.setItem('currentEncounter', JSON.stringify(currentEncounter));
 	});
-
+	function resetCurrentState() {
+		localStorage.removeItem('currentCampaign');
+		localStorage.removeItem('currentEncounter');
+		// why does this not update ???
+		$effect(() => {
+			const cc = localStorage.getItem('currentCampaign');
+			if (cc) currentCampaign = JSON.parse(cc);
+			const ce = localStorage.getItem('currentEncounter');
+			if (ce) currentEncounter = JSON.parse(ce);
+		});
+	}
 	function checkForLoggedIn() {
 		// console.log('data dot username', data.username);
 		if (data.username.length > 0) {
@@ -46,7 +56,10 @@
 
 <div class="px-4">
 	<h1 class="is-size-1">{data.username}'s Campaigns</h1>
-	<p>{currentCampaign.name} \ {currentEncounter}</p>
+	<p>
+		{currentCampaign.name} \ {currentEncounter}
+	</p>
+	<span> <button class="button" onclick={resetCurrentState}>Reset</button></span>
 	<table class="table">
 		<thead>
 			<tr>

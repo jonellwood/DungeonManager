@@ -29,6 +29,7 @@
 	<h1 class="is-size-1">
 		{data.name}
 	</h1>
+	<p>If no current encounter hide add to encounter button. Otherwise show.</p>
 	<button class="button" onclick={addToEncoutner}>Add to Encounter</button>
 	<!-- <div class="image">
 		<img src="https://www.dnd5eapi.co{data.image}" alt={data.name} />

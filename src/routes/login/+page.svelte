@@ -1,5 +1,6 @@
 <script lang="ts">
-	import dungDash from '../../lib/img/dungDash.png';
+	import dungDash from '../../lib/img/dragonhead-512.png';
+
 	import { enhance } from '$app/forms';
 	import { page } from '$app/stores';
 	$page;

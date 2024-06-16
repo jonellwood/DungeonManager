@@ -8,6 +8,7 @@
 	// console.log('layout says data is ');
 	// console.log(data);
 	import DragonSmall from '../lib/img/dragon-192.png';
+	import DragonHead from '../lib/img/dragonheadDark-192.png';
 	import DragonTiny from '../lib/img/dragon-32.png';
 </script>
 
@@ -15,7 +16,7 @@
 	<nav class="navbar has-text-link-dark" aria-label="main navigation">
 		<div class="navbar-brand">
 			<a class="navbar-item" href="/">
-				<img src={DragonTiny} alt="Tiny cute dragon face" />
+				<img src={DragonHead} alt="Tiny cute dragon face" />
 			</a>
 
 			<a
@@ -52,7 +53,8 @@
 
 						<div class="navbar-dropdown">
 							<a class="navbar-item" href="/"> About </a>
-							<a class="navbar-item" href="/"> Code of Conduct </a>
+							<a class="navbar-item" href="/codeofconduct"> Code of Conduct </a>
+							<a class="navbar-item" href="/privacypolicy"> Privacy Policy </a>
 							<a class="navbar-item" href="/"> Contact </a>
 							<hr class="navbar-divider" />
 							<a class="navbar-item" href="/"> Report an issue </a>
@@ -115,7 +117,8 @@
 				</p>
 				<p>Version Number: 0.0.1</p>
 			</div>
-			<img src={DragonSmall} alt="scary dragon face" class="dragonFace" />
+			<!-- <img src={DragonSmall} alt="scary dragon face" class="dragonFace" /> -->
+			<img src={DragonHead} alt="scary dragon face" class="dragonFace" />
 		</div>
 	</div>
 </footer>
@@ -150,5 +153,6 @@
 	.dragonFace {
 		position: relative;
 		width: 100px;
+		border-radius: 20%;
 	}
 </style>
