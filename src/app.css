@@ -9,3 +9,7 @@ body {
 	padding: 20px;
 	min-height: 100vh;
 }
+.carta-wrapper {
+	background-color: antiquewhite;
+	color: black;
+}

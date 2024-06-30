@@ -43,7 +43,7 @@
 						<a class="navbar-link" href="/"> Create</a>
 
 						<div class="navbar-dropdown">
-							<a class="navbar-item" href="/"> Campaign </a>
+							<a class="navbar-item" href="/createcampaign"> Campaign </a>
 							<a class="navbar-item" href="/"> Character </a>
 							<a class="navbar-item" href="/"> Encounter </a>
 						</div>

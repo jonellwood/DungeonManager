@@ -1,4 +1,11 @@
 {
-	"cSpell.words": ["AUTOINCREMENT", "campaignid", "characterid", "encounterid", "monsterid"],
+	"cSpell.words": [
+		"AUTOINCREMENT",
+		"campaignid",
+		"Carta",
+		"characterid",
+		"encounterid",
+		"monsterid"
+	],
 	"cSpell.ignoreWords": ["aint"]
 }

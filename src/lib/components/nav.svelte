@@ -32,7 +32,9 @@
 				<a class="navbar-link" href="/"> Create</a>
 
 				<div class="navbar-dropdown">
-					<a class="navbar-item has-text-link-dark has-background-black" href="/"> Campaign </a>
+					<a class="navbar-item has-text-link-dark has-background-black" href="/createcampaign">
+						Campaign
+					</a>
 					<a class="navbar-item has-text-link-dark has-background-black" href="/"> Character </a>
 					<a class="navbar-item has-text-link-dark has-background-black" href="/"> Encounter </a>
 				</div>
