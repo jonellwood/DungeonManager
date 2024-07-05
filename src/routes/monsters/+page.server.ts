@@ -6,8 +6,8 @@ export const load: PageServerLoad = async () => {
 
 	const requestOptions = {
 		method: 'GET',
-		headers: myHeaders,
-		redirect: 'follow'
+		headers: myHeaders
+		//redirect: 'follow'
 	};
 
 	const monsters = fetch('https://www.dnd5eapi.co/api/monsters', requestOptions)

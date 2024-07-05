@@ -105,7 +105,7 @@
 <footer class="footer">
 	<div class="content has-text-centered">
 		<div>
-			<strong>Dungeon Dashboard</strong> by
+			<strong>DungeonHead</strong> by
 			<a href="https://www.nerd-haven.com">The Community of Nerdhaven</a>.
 			<br />
 			<!-- The source code is licensed

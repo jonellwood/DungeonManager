@@ -5,7 +5,8 @@
 		"Carta",
 		"characterid",
 		"encounterid",
-		"monsterid"
+		"monsterid",
+		"npcs"
 	],
 	"cSpell.ignoreWords": ["aint"]
 }
