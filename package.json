@@ -37,6 +37,7 @@
 	"type": "module",
 	"dependencies": {
 		"@lucia-auth/adapter-sqlite": "^3.0.1",
+		"@sveltejs/adapter-netlify": "^4.3.1",
 		"@types/better-sqlite3": "^7.6.10",
 		"carta-md": "^4.3.1",
 		"class-variance-authority": "^0.7.0",
