@@ -43,7 +43,7 @@
 						<a class="navbar-link" href="/"> Create</a>
 
 						<div class="navbar-dropdown">
-							<a class="navbar-item" href="/createcampaign"> Campaign </a>
+							<a class="navbar-item" href="/"> Campaign </a>
 							<a class="navbar-item" href="/"> Character </a>
 							<a class="navbar-item" href="/"> Encounter </a>
 						</div>
@@ -65,7 +65,7 @@
 
 						<div class="navbar-dropdown">
 							<a class="navbar-item" href="/monsters"> Monsters </a>
-							<!-- <a class="navbar-item" href="/"> Character </a> -->
+							<a class="navbar-item" href="/import"> Test Toon Page </a>
 							<!-- <a class="navbar-item" href="/"> Encounter </a> -->
 						</div>
 					</div>
